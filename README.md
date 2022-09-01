@@ -4,7 +4,7 @@ My remake of Asteroids, the game
 Also, text is hard :(, so I just didn't do it.
 
 
-# Tips
+## Tips
 
 - You can only have 32 projectiles at a time, so don't click lots in the middle of the screen.
 - You can press F3 to show some stats & game ID, if you'd like to share your score and look legimate.

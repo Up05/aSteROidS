@@ -1,5 +1,5 @@
 # aSteROidS
-My remake of Asteroids, the game
+My ~~remake~~ of Asteroids, the game
 
 Also, text is hard :(, so I just didn't do it.
 

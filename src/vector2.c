@@ -3,13 +3,6 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 
-/** @deprecated */
-Vector2 clone(Vector2* vec){
-    Vector2 _vec;
-    _vec.x = vec->x;
-    _vec.y = vec->y;
-    return _vec;
-}
 void add_mut(Vector2* vec, Vector2* vec2){
     vec->x += vec2->x;
     vec->y += vec2->y;
@@ -52,18 +45,18 @@ Vector2 muld(Vector2 vec, double ammount){
     return _vec;
 }
 
-// void glVertex2d(double x, double y);
+/** @deprecated */
 void vertex(Vector2* vec){
     glVertex2d(vec->x, vec->y);
 }
-
+/** @deprecated */
 void normalize(Vector2* vec){
     double a = sqrt(vec->x*vec->x + vec->y*vec->y);
     vec->x /= a;
     vec->y /= a;
 }
 
-
+/** @deprecated */
 void setMag(Vector2* vec, double magnitude, Vector2* pos){
     sub_mut(vec, pos);
     normalize(vec);
@@ -135,10 +128,8 @@ Vector2 _mul(Vector2 a, Vector2 b){
 
 Vector2 _setMag(Vector2 vec, double magnitude){
 
-    // vec = _sub(pos, vec); // ! might be wrong!
     vec = _normalize(vec);
     vec = _mul(vec, v(magnitude));
-    // vec = add(vec, pos);
 
     return vec;
 }

@@ -27,11 +27,8 @@ Enemy new_Enemy(){
 }
 void rect(int x, int y, int w, int h);
 void Enemy_draw(Enemy enemy){
-    if(!enemy.dead){
+    if(!enemy.dead)
         rect(enemy.pos.x, enemy.pos.y, enemy.size.x, enemy.size.y);
-        // debug_name("size", enemy.size);
-    }
-
 }
 
 extern bool gameLost;

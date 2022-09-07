@@ -1,4 +1,5 @@
 #include "projectile.h"
+#include "enemy.h"
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 void Projectile_move(Projectile* projectile){
@@ -38,12 +39,6 @@ void Projectile_offscreen(Projectile* projectile){
     }
 }
 
-typedef struct Enemy Enemy;
-struct Enemy {
-    Vector2 pos;
-    Vector2 size; // 25x25
-    bool dead;
-};
 extern Enemy EM_enemies[48];
 extern int SCORE;
 void Projectile_hasCollided(Projectile* projectile){
@@ -57,8 +52,8 @@ void Projectile_hasCollided(Projectile* projectile){
             double px = projectile->pos.x, py = projectile->pos.y, 
             rx = EM_enemies[i].pos.x, ry = EM_enemies[i].pos.y, rw = EM_enemies[i].size.x, rh = EM_enemies[i].size.y;
 
-            if(px >= rx &&         // right of the left edge AND
-               px <= rx + rw &&    // left of the right edge AND
+            if(px >= rx &&         // right to the left edge AND
+               px <= rx + rw &&    // left  to the right edge AND
                py >= ry &&         // below the top AND
                py <= ry + rh 
             ) {

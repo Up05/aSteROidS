@@ -41,31 +41,33 @@ void ellipse(Vector2 pos, double r, double res){
     free(verts);
 
 }
-extern bool imagesEnabled;
-void character(int x, int y, int w, int h, double tx, double ty, double tw, double th, int textureId){
-    if(!imagesEnabled){
-        glEnable(GL_TEXTURE_2D);
-        imagesEnabled = true;
-    }
 
-    int x2 = x + w, y2 = y + h;
-    double tx2 = tx + tw, ty2 = ty + th;
-    // tx2 = 256, ty2 = 256;
 
-    // glColor3ub(255, 0, 255);
+// extern bool imagesEnabled;
+// void character(int x, int y, int w, int h, double tx, double ty, double tw, double th, int textureId){
+//     if(!imagesEnabled){
+//         glEnable(GL_TEXTURE_2D);
+//         imagesEnabled = true;
+//     }
+
+//     int x2 = x + w, y2 = y + h;
+//     double tx2 = tx + tw, ty2 = ty + th;
+//     // tx2 = 256, ty2 = 256;
+
+//     // glColor3ub(255, 0, 255);
     
-    // debug_name("x ,y ", new_Vector2(tx, ty));
-    // debug_name("x2,y2", new_Vector2(tx2, ty2));
-    glBindTexture(GL_TEXTURE_2D, textureId);
-    glBegin(GL_QUADS);
-        glTexCoord2d(tx, ty);
-        glVertex2i(x , y );
-        glTexCoord2d(tx2, ty);
-        glVertex2i(x2, y );
-        glTexCoord2d(tx2, ty2);
-        glVertex2i(x2, y2);
-        glTexCoord2d(tx, ty2);
-        glVertex2i(x , y2);
-    glEnd();
-    glBindTexture(GL_TEXTURE_2D, 0);
-}
+//     // debug_name("x ,y ", new_Vector2(tx, ty));
+//     // debug_name("x2,y2", new_Vector2(tx2, ty2));
+//     glBindTexture(GL_TEXTURE_2D, textureId);
+//     glBegin(GL_QUADS);
+//         glTexCoord2d(tx, ty);
+//         glVertex2i(x , y );
+//         glTexCoord2d(tx2, ty);
+//         glVertex2i(x2, y );
+//         glTexCoord2d(tx2, ty2);
+//         glVertex2i(x2, y2);
+//         glTexCoord2d(tx, ty2);
+//         glVertex2i(x , y2);
+//     glEnd();
+//     glBindTexture(GL_TEXTURE_2D, 0);
+// }

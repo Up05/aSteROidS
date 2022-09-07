@@ -3,12 +3,12 @@
 #include <string.h>
 #include <time.h>
 #include <GLFW/glfw3.h>
+#include <Windows.h>
 
 #include "shapes.h"
 // #include "vector2.h"
 #include "enemy.h"
 #include "stats.h"
-#include "text.h"
 
 static void mouse_position_callback(GLFWwindow* window, double x, double y);
 static void mouse_button_callback  (GLFWwindow* window, int button, int action, int mods);
@@ -31,14 +31,18 @@ const char* base_path = "";
 double randf(){
     return rand() / (float) RAND_MAX;
 }
-
+HWND hWnd;
 int main(void){
+    if (!glfwInit())
+        return -1;
+
+    hWnd = GetConsoleWindow();
+    ShowWindow( hWnd, SW_HIDE );
+    // hides console by default.
 
     time_t t;
     srand((unsigned) time(&t));
 
-    if (!glfwInit())
-        return -1;
     puts("Game started!");
     window = glfwCreateWindow(width, height, "Asteroids C", NULL, NULL);
     glfwMakeContextCurrent(window);
@@ -105,6 +109,13 @@ static void mouse_button_callback(GLFWwindow* window, int button, int action, in
 }
 
 static void keyboard_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    if (key == GLFW_KEY_F3 && action == GLFW_RELEASE)
+    if (key == GLFW_KEY_F3 && action == GLFW_RELEASE){
         debug = !debug;
+        if(debug){
+            // ShowWindow( hWnd, SW_MINIMIZE );
+            ShowWindow( hWnd, SW_HIDE );
+        } else {
+            ShowWindow( hWnd, SW_SHOW);
+        }
+    }
 }

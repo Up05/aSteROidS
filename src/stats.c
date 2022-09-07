@@ -8,8 +8,8 @@
 int
     TIME_PLAYED,
     SCORE = 1,
-    SHOT,
-    MISSED,
+    SHOT = 0,
+    MISSED = 0,
     ROUND_ID,
     FRAME_COUNT;
 
@@ -40,7 +40,6 @@ void Stats_init(){
 void calcTimePast(){
     time_t t;
     TIME_PLAYED = (int) (time(&t) - time_started);
-    // printf("TIME_PLAYED_UNFORMATED: %d", TIME_PLAYED);
 }
 
 char *format_string_time(int a, int b){
@@ -60,7 +59,6 @@ extern bool gameLost;
 void Stats_update(){
     if(gameLost) return;
     SCORE ++;
-
     calcTimePast();
 }
 
@@ -69,7 +67,7 @@ void Stats_draw(){
     if(gameLost || !debug) return;
     system("cls");
     printf(
-        "Time played: %s\nScore: %d\nShot: %d\nMissed: %d\nFrameCount: %d\nRoundID: %d\n\n", 
+        "Time played: %s\nScore: %d\nShot: %d\nMissed: %d\nFrameCount: %d\nRoundID: %d\n\n\r", 
         formatTime(TIME_PLAYED), SCORE, SHOT, MISSED, FRAME_COUNT, ROUND_ID
     );
 

@@ -7,7 +7,6 @@ struct Vector2 {
     double x, y;
 };
 
-Vector2 clone(Vector2* vec);
 
 void add_mut(Vector2* vec, Vector2* vec2);
 void sub_mut(Vector2* vec, Vector2* vec2);
